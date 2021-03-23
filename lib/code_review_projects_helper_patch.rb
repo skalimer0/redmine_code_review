@@ -18,7 +18,7 @@
 require_dependency 'projects_helper'
 
 module ProjectsHelperMethodsCodeReview
-  def project_settings_tabs
+  def project_settings_tabs_without_checklists
     tabs = super
     action = {:name => 'code_review', :controller => 'code_review_settings', :action => :show, :partial => 'code_review_settings/show', :label => :code_review}
 
