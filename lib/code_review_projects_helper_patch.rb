@@ -27,17 +27,14 @@ module CodeReviewProjectsHelperPatch
       alias_method :project_settings_tabs_without_code_review, :project_settings_tabs
       alias_method :project_settings_tabs, :project_settings_tabs_with_code_review
     end
-
-    module InstanceMethods
-      def project_settings_tabs_with_code_review
-        tabs = project_settings_tabs_without_code_review
-        action = {:name => 'code_review', :controller => 'code_review_settings', :action => :show, :partial => 'code_review_settings/show', :label => :code_review}
-        tabs << action if User.current.allowed_to?(action, @project)
-        tabs
-        end
-    end
   end
 end
 
 module ProjectsHelperInstanceMethodsCodeReview
+  def project_settings_tabs_with_code_review
+    tabs = project_settings_tabs_without_code_review
+    action = {:name => 'code_review', :controller => 'code_review_settings', :action => :show, :partial => 'code_review_settings/show', :label => :code_review}
+    tabs << action if User.current.allowed_to?(action, @project)
+    tabs
+  end
 end
