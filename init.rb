@@ -25,7 +25,7 @@ require 'code_review_change_patch'
 require 'code_review_changeset_patch'
 require 'code_review_issue_patch'
 require 'code_review_issue_hooks'
-require 'code_review_projects_helper_patch'
+require 'code_review/projects_helper_patch'
 require 'code_review_attachment_patch'
 
 Rails.configuration.to_prepare do
